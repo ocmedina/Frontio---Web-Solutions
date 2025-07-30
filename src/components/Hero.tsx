@@ -62,12 +62,15 @@ const Hero = () => {
                   {slide.subtitle}
                 </motion.p>
                 <motion.a
-                  href="#contact"
-                  whileHover={{ scale: 1.05 }}
-                  className="mt-6 inline-block bg-primary text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition"
-                >
-                  Cotizar ahora
-                </motion.a>
+  href="#contact"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.97 }}
+  transition={{ type: "spring", stiffness: 300 }}
+  className="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition"
+>
+  Cotizar ahora
+</motion.a>
+
               </div>
             </div>
           </SwiperSlide>
