@@ -6,7 +6,7 @@ import Services from "./components/Services";
 import AboutUs from "./components/AboutUs";
 import Technology from "./components/Tecnologias";
 import TechIcons from "./components/Icons";
-import Contact from "./components/Contact";
+import Contact from "./components/contact";
 
 function App() {
   return (
