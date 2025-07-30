@@ -34,7 +34,7 @@ function App() {
 
       {/* Footer */}
       <footer className="text-center py-6 text-sm text-gray-600 dark:text-gray-400 border-t dark:border-gray-700">
-        © {new Date().getFullYear()} OM Web Solutions. Todos los derechos reservados.
+        © {new Date().getFullYear()} Frontio Web Solutions. Todos los derechos reservados.
       </footer>
     </div>
   );
