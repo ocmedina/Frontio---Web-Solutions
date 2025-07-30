@@ -1,6 +1,52 @@
 import { Mail, Send, User } from "lucide-react";
+import { useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    // Construimos el cuerpo para enviar por fetch
+    const data = new FormData();
+    data.append("name", formData.name);
+    data.append("email", formData.email);
+    data.append("message", formData.message);
+    data.append("_captcha", "false");
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/octamedina239@gmail.com", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: data,
+      });
+
+      if (response.ok) {
+        alert("¡Mensaje enviado! Te responderemos pronto.");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        alert("Error al enviar. Por favor, intentá nuevamente.");
+      }
+    } catch (error) {
+      alert("Error de red. Por favor, revisá tu conexión.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-gray-50 text-gray-800 scroll-mt-24">
       <div className="max-w-5xl mx-auto px-4 text-center">
@@ -9,11 +55,7 @@ const Contact = () => {
           Si tenés una idea en mente o necesitás una web profesional, escribinos.
         </p>
 
-        <form
-          action="https://formsubmit.co/octamedina239@gmail.com"
-          method="POST"
-          className="max-w-xl mx-auto space-y-6 text-left"
-        >
+        <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-6 text-left">
           {/* Nombre */}
           <div>
             <label htmlFor="name" className="block mb-1 font-medium text-gray-700">
@@ -25,9 +67,12 @@ const Contact = () => {
                 id="name"
                 type="text"
                 name="name"
+                value={formData.name}
+                onChange={handleChange}
                 required
                 placeholder="Tu nombre"
                 className="w-full py-3 bg-transparent focus:outline-none text-gray-800"
+                disabled={loading}
               />
             </div>
           </div>
@@ -43,9 +88,12 @@ const Contact = () => {
                 id="email"
                 type="email"
                 name="email"
+                value={formData.email}
+                onChange={handleChange}
                 required
                 placeholder="tu@email.com"
                 className="w-full py-3 bg-transparent focus:outline-none text-gray-800"
+                disabled={loading}
               />
             </div>
           </div>
@@ -58,24 +106,26 @@ const Contact = () => {
             <textarea
               id="message"
               name="message"
+              value={formData.message}
+              onChange={handleChange}
               rows={5}
               required
               placeholder="Contame sobre tu proyecto..."
               className="w-full rounded-lg border border-gray-300 bg-white text-gray-800 p-3"
+              disabled={loading}
             ></textarea>
           </div>
-
-          {/* Campos ocultos */}
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="octamedina239@gmail.com" />
 
           {/* Botón */}
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition duration-300 w-full flex items-center justify-center gap-2"
+            disabled={loading}
+            className={`bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition duration-300 w-full flex items-center justify-center gap-2 ${
+              loading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
           >
             <Send size={18} />
-            Enviar mensaje
+            {loading ? "Enviando..." : "Enviar mensaje"}
           </button>
         </form>
       </div>
