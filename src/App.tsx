@@ -7,6 +7,7 @@ import AboutUs from "./components/AboutUs";
 import Technology from "./components/Tecnologias";
 import TechIcons from "./components/Icons";
 import Contact from "./components/contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -33,9 +34,7 @@ function App() {
       <Contact />
 
       {/* Footer */}
-      <footer className="text-center py-6 text-sm text-gray-600 dark:text-gray-400 border-t dark:border-gray-700">
-        © {new Date().getFullYear()} Frontio Web Solutions. Todos los derechos reservados.
-      </footer>
+      <Footer />
     </div>
   );
 }
