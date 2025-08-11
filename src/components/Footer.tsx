@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="flex justify-center md:justify-end gap-5 text-xl">
           {[
             { href: "https://www.instagram.com/frontio.ar/", icon: "ri-instagram-line", hover: "hover:text-pink-500" },
-            { href: "www.linkedin.com/company/frontio-web-solutions/", icon: "ri-linkedin-line", hover: "hover:text-blue-400" },
+            { href: "https://www.linkedin.com/company/frontio-web-solutions", icon: "ri-linkedin-line", hover: "hover:text-blue-400" },
             { href: "https://github.com", icon: "ri-github-line", hover: "hover:text-gray-300" },
           ].map(({ href, icon, hover }, i) => (
             <a
