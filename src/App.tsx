@@ -8,6 +8,7 @@ import Technology from "./components/Tecnologias";
 import TechIcons from "./components/Icons";
 import Contact from "./components/contact";
 import Footer from "./components/Footer";
+import Projects from "./components/Projects";
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
 
       {/* About Us */}
       <AboutUs />
+
+      {/* Proyectos */}
+      <Projects />
+
       {/* Tecnologías */}
       <Technology />
 
