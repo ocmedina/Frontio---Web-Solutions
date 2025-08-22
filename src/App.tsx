@@ -9,6 +9,7 @@ import TechIcons from "./components/Icons";
 import Contact from "./components/contact";
 import Footer from "./components/Footer";
 import Projects from "./components/Projects";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
 
       {/* Contacto */}
       <Contact />
+
+      <WhatsAppButton />
 
       {/* Footer */}
       <Footer />
