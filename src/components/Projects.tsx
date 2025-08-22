@@ -131,14 +131,7 @@ export default function Projects() {
                   >
                     <FiExternalLink /> Demo
                   </a>
-                  <a
-                    href={project.code}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-gray-600 hover:underline"
-                  >
-                    <FiGithub /> Código
-                  </a>
+                  
                 </div>
               </div>
             </motion.div>
