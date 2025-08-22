@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { FiExternalLink } from "react-icons/fi";
 
 interface Project {
   id: number;
@@ -11,7 +11,6 @@ interface Project {
   image: string;
   tech: string[];
   demo: string;
-  code: string;
   category: string;
 }
 /*Listas de proyectos*/
@@ -23,7 +22,6 @@ const projectsData: Project[] = [
     image: "/om-tec.webp",
     tech: ["HTML", "CSS", "JavaScript", "Netlify"],
     demo: "https://om-tecnologia.netlify.app/",
-    code: "https://github.com/ocmedina/Page-OM-Tecnologia",
     category: "Landing Pages",
   },
   {
@@ -33,7 +31,6 @@ const projectsData: Project[] = [
     image: "/PaolaLenceria.webp",
     tech: ["React", "Tailwind", "Swiper", "Framer Motion", "Firebase", "Vercel",],
     demo: "https://tusitio.com/store",
-    code: "https://github.com/ocmedina/paola-lenceria-page",
     category: "E-commerce",
   },
   {
@@ -43,7 +40,6 @@ const projectsData: Project[] = [
     image: "/Tienduca.webp",
     tech: ["Next.js", "Tailwind", "Swiper", "Framer Motion", "Typescript", "Vercel", "Firebase",],
     demo: "https://tienduca.vercel.app/",
-    code: "https://github.com/usuario/dashboard",
     category: "Web Apps",
   },
 ];
