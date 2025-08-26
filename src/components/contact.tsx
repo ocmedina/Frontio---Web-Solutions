@@ -5,12 +5,15 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    inquiry: "",
     message: "",
   });
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -18,10 +21,10 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Construimos el cuerpo para enviar por fetch
     const data = new FormData();
     data.append("name", formData.name);
     data.append("email", formData.email);
+    data.append("inquiry", formData.inquiry);
     data.append("message", formData.message);
     data.append("_captcha", "false");
 
@@ -36,7 +39,7 @@ const Contact = () => {
 
       if (response.ok) {
         alert("¡Mensaje enviado! Te responderemos pronto.");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", inquiry: "", message: "" });
       } else {
         alert("Error al enviar. Por favor, intentá nuevamente.");
       }
@@ -98,6 +101,28 @@ const Contact = () => {
             </div>
           </div>
 
+          {/* Tipo de consulta */}
+          <div>
+            <label htmlFor="inquiry" className="block mb-1 font-medium text-gray-700">
+              Tipo de consulta
+            </label>
+            <select
+              id="inquiry"
+              name="inquiry"
+              value={formData.inquiry}
+              onChange={handleChange}
+              required
+              className="w-full rounded-lg border border-gray-300 bg-white text-gray-800 p-3 focus:outline-none"
+              disabled={loading}
+            >
+              <option value="">Seleccioná una opción</option>
+              <option value="desarrollo">Desarrollo Web</option>
+              <option value="aplicaciones">Aplicaciones Móviles</option>
+              <option value="marketing">Marketing Digital</option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
+
           {/* Mensaje */}
           <div>
             <label htmlFor="message" className="block mb-1 font-medium text-gray-700">
@@ -111,7 +136,7 @@ const Contact = () => {
               rows={5}
               required
               placeholder="Contame sobre tu proyecto..."
-              className="w-full rounded-lg border border-gray-300 bg-white text-gray-800 p-3"
+              className="w-full rounded-lg border border-gray-300 bg-white text-gray-800 p-3 focus:outline-none"
               disabled={loading}
             ></textarea>
           </div>
