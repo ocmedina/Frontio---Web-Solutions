@@ -3,7 +3,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <img src="/frontio-logo1.png" alt="OM Web Solutions" className="h-10 w-auto" />
+        <img src="/frontio-logo1.webp" alt="OM Web Solutions" className="h-10 w-auto" />
         <nav className="hidden md:flex gap-6 text-gray-800">
           <a href="#services" className="hover:text-blue-600 transition-all duration-300 hover:-translate-y-[1px]">Servicios</a>
           <a href="#about" className="hover:text-blue-600 transition-all duration-300 hover:-translate-y-[1px]">Sobre Nosotros</a>

@@ -35,11 +35,11 @@ const projectsData: Project[] = [
   },
   {
     id: 3,
-    title: "Tienduca (En desarrollo)",
+    title: "Tienduca - Tu tienda de emprendedores",
     description: "Plataforma web que conecta emprendedores locales con clientes a través de un catálogo visual por categorías. Desarrollada con Next.js y Tailwind CSS, permite mostrar productos o servicios y acceder directamente al contacto del emprendedor. Enfocada en la visibilidad sin intermediarios ni gestión de pagos.",
     image: "/Tienduca.webp",
     tech: ["Next.js", "Tailwind", "Swiper", "Framer Motion", "Typescript", "Vercel", "Firebase",],
-    demo: "https://tienduca.vercel.app/",
+    demo: "https://www.tienduca.com.ar/",
     category: "Web Apps",
   },
 ];

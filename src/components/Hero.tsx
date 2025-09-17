@@ -9,17 +9,17 @@ import 'swiper/css/effect-fade';
 const Hero = () => {
   const slides = [
     {
-      image: '/hero1.jpg',
+      image: '/hero1.webp',
       title: 'Desarrollamos soluciones digitales',
       subtitle: 'Sitios rápidos, modernos y responsivos',
     },
     {
-      image: '/hero2.jpg',
+      image: '/hero2.webp',
       title: 'Impulsá tu negocio online',
       subtitle: 'Diseño web profesional a tu medida',
     },
     {
-      image: '/hero3.jpg',
+      image: '/hero3.webp',
       title: 'Landing pages efectivas',
       subtitle: 'Convertí visitantes en clientes',
     },
