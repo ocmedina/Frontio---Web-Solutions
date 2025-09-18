@@ -42,6 +42,15 @@ const projectsData: Project[] = [
     demo: "https://www.tienduca.com.ar/",
     category: "Web Apps",
   },
+  {
+    id: 4,
+    title: "Bodega Mendocina",
+    description: "Este proyecto es una landing page profesional y moderna para una bodega, diseñada y desarrollada con Next.js. La página fue creada con un enfoque en la experiencia de usuario y el rendimiento, utilizando Tailwind CSS para un diseño responsivo y elegante.",
+    image: "/bodega-mendocina.webp",
+    tech: ["Next.js", "Tailwind", "Vercel","Framer Motion", "Typescript"],
+    demo: "https://bodeg.vercel.app/",
+    category: "Landing Pages",
+  },
 ];
 
 export default function Projects() {
