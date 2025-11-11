@@ -1,32 +1,32 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
-import { motion } from 'framer-motion';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import 'swiper/css/effect-fade';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
+import { motion } from "framer-motion";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/effect-fade";
 
 const Hero = () => {
   const slides = [
     {
-      image: '/hero1.webp',
-      title: 'Desarrollamos soluciones digitales',
-      subtitle: 'Sitios rápidos, modernos y responsivos',
+      image: "/hero1.webp",
+      title: "Desarrollamos soluciones digitales",
+      subtitle: "Sitios rápidos, modernos y responsivos",
     },
     {
-      image: '/hero2.webp',
-      title: 'Impulsá tu negocio online',
-      subtitle: 'Diseño web profesional a tu medida',
+      image: "/hero2.webp",
+      title: "Impulsá tu negocio online",
+      subtitle: "Diseño web profesional a tu medida",
     },
     {
-      image: '/hero3.webp',
-      title: 'Landing pages efectivas',
-      subtitle: 'Convertí visitantes en clientes',
+      image: "/hero3.webp",
+      title: "Landing pages efectivas",
+      subtitle: "Convertí visitantes en clientes",
     },
   ];
 
   return (
-    <section className="relative h-[85vh]">
+    <section className="relative h-[85vh]" aria-label="Sección principal">
       <Swiper
         modules={[Autoplay, Pagination, Navigation, EffectFade]}
         effect="fade"
@@ -43,16 +43,18 @@ const Hero = () => {
               style={{
                 backgroundImage: `url(${slide.image})`,
               }}
+              role="img"
+              aria-label={slide.title}
             >
               <div className="w-full h-full bg-black/60 flex flex-col items-center justify-center text-center px-4">
-                <motion.h2
+                <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                   className="text-4xl md:text-5xl font-bold text-white"
                 >
                   {slide.title}
-                </motion.h2>
+                </motion.h1>
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -62,15 +64,15 @@ const Hero = () => {
                   {slide.subtitle}
                 </motion.p>
                 <motion.a
-  href="#contact"
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.97 }}
-  transition={{ type: "spring", stiffness: 300 }}
-  className="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition"
->
-  Cotizar ahora
-</motion.a>
-
+                  href="#contact"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition"
+                  aria-label="Contactar para cotización"
+                >
+                  Cotizar ahora
+                </motion.a>
               </div>
             </div>
           </SwiperSlide>

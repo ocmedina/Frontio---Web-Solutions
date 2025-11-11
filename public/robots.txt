@@ -1,0 +1,8 @@
+# robots.txt para Frontio Web Solutions
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://frontio.com.ar/sitemap.xml
