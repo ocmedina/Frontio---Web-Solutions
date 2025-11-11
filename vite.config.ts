@@ -7,12 +7,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
     // Optimizaciones para SEO y rendimiento
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // Eliminar console.logs en producción
-      },
-    },
+    minify: 'esbuild', // Usar esbuild en lugar de terser
     rollupOptions: {
       output: {
         manualChunks: {
