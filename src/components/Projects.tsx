@@ -18,7 +18,8 @@ const projectsData: Project[] = [
   {
     id: 1,
     title: "OM Tecnología - Servicio Tecnico",
-    description: "Sitio web para emprendimiento de servicio técnico con panel de seguimiento.",
+    description:
+      "Sitio web para emprendimiento de servicio técnico con panel de seguimiento.",
     image: "/om-tec.webp",
     tech: ["HTML", "CSS", "JavaScript", "Netlify"],
     demo: "https://om-tecnologia.netlify.app/",
@@ -27,27 +28,45 @@ const projectsData: Project[] = [
   {
     id: 2,
     title: "Ecommerce Paola Lenceria (En desarrollo)",
-    description: "Proyecto de tienda online de lencería desarrollado con React. Se utilizaron Tailwind CSS para un diseño responsivo y Swiper para un catálogo de productos interactivo. Demostración de habilidades en desarrollo front-end y creación de componentes reutilizables.",
+    description:
+      "Proyecto de tienda online de lencería desarrollado con React. Se utilizaron Tailwind CSS para un diseño responsivo y Swiper para un catálogo de productos interactivo. Demostración de habilidades en desarrollo front-end y creación de componentes reutilizables.",
     image: "/PaolaLenceria.webp",
-    tech: ["React", "Tailwind", "Swiper", "Framer Motion", "Firebase", "Vercel",],
+    tech: [
+      "React",
+      "Tailwind",
+      "Swiper",
+      "Framer Motion",
+      "Firebase",
+      "Vercel",
+    ],
     demo: "https://tusitio.com/store",
     category: "E-commerce",
   },
   {
     id: 3,
     title: "Tienduca - Tu tienda de emprendedores",
-    description: "Plataforma web que conecta emprendedores locales con clientes a través de un catálogo visual por categorías. Desarrollada con Next.js y Tailwind CSS, permite mostrar productos o servicios y acceder directamente al contacto del emprendedor. Enfocada en la visibilidad sin intermediarios ni gestión de pagos.",
+    description:
+      "Plataforma web que conecta emprendedores locales con clientes a través de un catálogo visual por categorías. Desarrollada con Next.js y Tailwind CSS, permite mostrar productos o servicios y acceder directamente al contacto del emprendedor. Enfocada en la visibilidad sin intermediarios ni gestión de pagos.",
     image: "/Tienduca.webp",
-    tech: ["Next.js", "Tailwind", "Swiper", "Framer Motion", "Typescript", "Vercel", "Firebase",],
+    tech: [
+      "Next.js",
+      "Tailwind",
+      "Swiper",
+      "Framer Motion",
+      "Typescript",
+      "Vercel",
+      "Firebase",
+    ],
     demo: "https://www.tienduca.com.ar/",
     category: "Web Apps",
   },
   {
     id: 4,
     title: "Bodega Mendocina",
-    description: "Este proyecto es una landing page profesional y moderna para una bodega, diseñada y desarrollada con Next.js. La página fue creada con un enfoque en la experiencia de usuario y el rendimiento, utilizando Tailwind CSS para un diseño responsivo y elegante.",
+    description:
+      "Este proyecto es una landing page profesional y moderna para una bodega, diseñada y desarrollada con Next.js. La página fue creada con un enfoque en la experiencia de usuario y el rendimiento, utilizando Tailwind CSS para un diseño responsivo y elegante.",
     image: "/bodega-mendocina.webp",
-    tech: ["Next.js", "Tailwind", "Vercel","Framer Motion", "Typescript"],
+    tech: ["Next.js", "Tailwind", "Vercel", "Framer Motion", "Typescript"],
     demo: "https://bodeg.vercel.app/",
     category: "Landing Pages",
   },
@@ -110,11 +129,9 @@ export default function Projects() {
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-              <div className="p-5 flex flex-col flex-grow">
-                <h3 className="text-xl font-semibold mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 text-sm flex-grow">
+              <div className="p-5 flex flex-col grow">
+                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                <p className="text-gray-600 text-sm grow">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 my-3">
@@ -136,7 +153,6 @@ export default function Projects() {
                   >
                     <FiExternalLink /> Demo
                   </a>
-                  
                 </div>
               </div>
             </motion.div>
