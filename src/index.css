@@ -196,3 +196,43 @@ html {
   border-radius: 2px;
 }
 
+/* Project Swiper Customization */
+.project-swiper {
+  height: 256px;
+}
+
+.project-swiper .swiper-button-next,
+.project-swiper .swiper-button-prev {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-swiper:hover .swiper-button-next,
+.project-swiper:hover .swiper-button-prev {
+  opacity: 1;
+}
+
+.project-swiper .swiper-button-next::after,
+.project-swiper .swiper-button-prev::after {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.project-swiper .swiper-pagination-bullet {
+  background: white;
+  opacity: 0.7;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.project-swiper .swiper-pagination-bullet-active {
+  background: #2563eb;
+  opacity: 1;
+}
+

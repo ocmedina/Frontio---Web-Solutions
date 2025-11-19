@@ -3,12 +3,17 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { FiExternalLink } from "react-icons/fi";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
+  images: string[]; // Cambiado de 'image' a 'images' array
   tech: string[];
   demo: string;
   category: string;
@@ -20,34 +25,26 @@ const projectsData: Project[] = [
     title: "OM Tecnología - Servicio Tecnico",
     description:
       "Sitio web para emprendimiento de servicio técnico con panel de seguimiento.",
-    image: "/om-tec.webp",
+    images: [
+      "/images/projects/OM/Inicio.JPG",
+      "/images/projects/OM/Servicios.JPG",
+      "/images/projects/OM/Sobre-mi.JPG",
+    ],
     tech: ["HTML", "CSS", "JavaScript", "Netlify"],
     demo: "https://om-tecnologia.netlify.app/",
     category: "Landing Pages",
   },
   {
     id: 2,
-    title: "Ecommerce Paola Lenceria (En desarrollo)",
-    description:
-      "Proyecto de tienda online de lencería desarrollado con React. Se utilizaron Tailwind CSS para un diseño responsivo y Swiper para un catálogo de productos interactivo. Demostración de habilidades en desarrollo front-end y creación de componentes reutilizables.",
-    image: "/PaolaLenceria.webp",
-    tech: [
-      "React",
-      "Tailwind",
-      "Swiper",
-      "Framer Motion",
-      "Firebase",
-      "Vercel",
-    ],
-    demo: "https://tusitio.com/store",
-    category: "E-commerce",
-  },
-  {
-    id: 3,
     title: "Tienduca - Tu tienda de emprendedores",
     description:
       "Plataforma web que conecta emprendedores locales con clientes a través de un catálogo visual por categorías. Desarrollada con Next.js y Tailwind CSS, permite mostrar productos o servicios y acceder directamente al contacto del emprendedor. Enfocada en la visibilidad sin intermediarios ni gestión de pagos.",
-    image: "/Tienduca.webp",
+    images: [
+      "/images/projects/Tienduca/Inicio.JPG",
+      "/images/projects/Tienduca/Emprendedores.JPG",
+      "/images/projects/Tienduca/Contacto.JPG",
+      "/images/projects/Tienduca/Login.JPG",
+    ],
     tech: [
       "Next.js",
       "Tailwind",
@@ -61,11 +58,16 @@ const projectsData: Project[] = [
     category: "Web Apps",
   },
   {
-    id: 4,
+    id: 3,
     title: "Bodega Mendocina",
     description:
       "Este proyecto es una landing page profesional y moderna para una bodega, diseñada y desarrollada con Next.js. La página fue creada con un enfoque en la experiencia de usuario y el rendimiento, utilizando Tailwind CSS para un diseño responsivo y elegante.",
-    image: "/bodega-mendocina.webp",
+    images: [
+      "/images/projects/Bodega/Inicio.JPG",
+      "/images/projects/Bodega/Vinos.JPG",
+      "/images/projects/Bodega/Acerca.JPG",
+      "/images/projects/Bodega/Noticias.JPG",
+    ],
     tech: ["Next.js", "Tailwind", "Vercel", "Framer Motion", "Typescript"],
     demo: "https://bodeg.vercel.app/",
     category: "Landing Pages",
@@ -113,22 +115,57 @@ export default function Projects() {
 
         {/* Grid de proyectos */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -8 }}
               className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col"
             >
+              {/* Carrusel de imágenes */}
               <div className="relative group">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                />
+                <Swiper
+                  modules={[Pagination, Navigation, Autoplay]}
+                  pagination={{
+                    clickable: true,
+                    dynamicBullets: true,
+                  }}
+                  navigation={true}
+                  autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                  }}
+                  loop={true}
+                  className="project-swiper"
+                >
+                  {project.images.map((image, imgIndex) => (
+                    <SwiperSlide key={imgIndex}>
+                      <div className="relative w-full h-64 bg-gray-100 flex items-center justify-center">
+                        <img
+                          src={image}
+                          alt={`${project.title} - Vista ${imgIndex + 1}`}
+                          className="max-w-full max-h-full object-contain"
+                          loading="lazy"
+                          onError={(e) => {
+                            // Fallback si la imagen no existe
+                            e.currentTarget.src = `https://placehold.co/600x400/2563eb/ffffff?text=${encodeURIComponent(
+                              project.title
+                            )}`;
+                          }}
+                        />
+                        {/* Overlay con número de imagen */}
+                        <div className="absolute top-3 right-3 bg-black/60 text-white text-xs px-2 py-1 rounded-full backdrop-blur-sm">
+                          {imgIndex + 1}/{project.images.length}
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
+
               <div className="p-5 flex flex-col grow">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                 <p className="text-gray-600 text-sm grow">
@@ -149,9 +186,9 @@ export default function Projects() {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-blue-600 hover:underline"
+                    className="flex items-center gap-1 text-blue-600 hover:underline font-semibold"
                   >
-                    <FiExternalLink /> Demo
+                    <FiExternalLink /> Ver Proyecto
                   </a>
                 </div>
               </div>
