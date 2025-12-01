@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/:path((?!www\\.).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "frontio.com.ar"
+        }
+      ],
+      "destination": "https://www.frontio.com.ar/:path*",
+      "permanent": true
+    },
+    {
       "source": "/:path*#:hash*",
       "destination": "/",
       "permanent": true
@@ -16,7 +27,7 @@
         },
         {
           "key": "Link",
-          "value": "<https://frontio.com.ar/>; rel=\"canonical\""
+          "value": "<https://www.frontio.com.ar/>; rel=\"canonical\""
         }
       ]
     }
