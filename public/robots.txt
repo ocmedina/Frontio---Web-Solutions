@@ -4,5 +4,11 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
+# No indexar URLs con fragmentos hash (SPA)
+Disallow: /*#
+
 # Sitemap
 Sitemap: https://frontio.com.ar/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

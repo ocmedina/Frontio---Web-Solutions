@@ -1,0 +1,24 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*#:hash*",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        },
+        {
+          "key": "Link",
+          "value": "<https://frontio.com.ar/>; rel=\"canonical\""
+        }
+      ]
+    }
+  ]
+}
