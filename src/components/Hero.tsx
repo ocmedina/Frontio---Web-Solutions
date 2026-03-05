@@ -1,248 +1,132 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 import { motion } from "framer-motion";
-import { ArrowRightIcon, CheckCircleIcon } from "@heroicons/react/24/solid";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/effect-fade";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 const Hero = () => {
-  const slides = [
-    {
-      image: "/hero1.webp",
-      title: "Transformamos Ideas en Realidad Digital",
-      subtitle: "Desarrollo web moderno con tecnologías de vanguardia",
-      badge: "🚀 Sitios Web Profesionales",
-      features: ["Diseño Responsivo", "SEO Optimizado", "Velocidad Extrema"],
-    },
-    {
-      image: "/hero2.webp",
-      title: "Impulsa tu Negocio al Siguiente Nivel",
-      subtitle: "Soluciones digitales que convierten visitantes en clientes",
-      badge: "💼 Marketing Digital",
-      features: ["Landing Pages", "E-commerce", "Posicionamiento"],
-    },
-    {
-      image: "/hero3.webp",
-      title: "Automatiza y Escala tu Empresa",
-      subtitle: "Sistemas de gestión, bots y herramientas a medida",
-      badge: "🤖 Sistemas Personalizados",
-      features: ["ChatBots IA", "FrontStock", "Sistemas a Medida"],
-    },
-  ];
-
   return (
-    <section
-      className="relative h-screen min-h-[600px]"
-      aria-label="Sección principal"
-    >
-      <Swiper
-        modules={[Autoplay, Pagination, Navigation, EffectFade]}
-        effect="fade"
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
-        pagination={{
-          clickable: true,
-          bulletActiveClass: "swiper-pagination-bullet-active bg-blue-600",
+    <section className="relative overflow-hidden bg-slate-950 text-white min-h-[88vh] flex items-center">
+      {/* Radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(34,211,238,0.1),transparent)]" />
+      {/* Subtle grid */}
+      <div
+        className="absolute inset-0 opacity-[0.025]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
         }}
-        navigation={true}
-        loop={true}
-        className="w-full h-full"
-      >
-        {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
-            <div
-              className="w-full h-full bg-cover bg-center flex items-center justify-center relative"
-              style={{
-                backgroundImage: `url(${slide.image})`,
-              }}
-              role="img"
-              aria-label={slide.title}
-            >
-              {/* Overlay mejorado con gradiente */}
-              <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-transparent"></div>
+      />
+      {/* Glow orbs */}
+      <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-cyan-400/8 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-blue-600/8 blur-3xl pointer-events-none" />
 
-              {/* Particles effect */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.1),transparent)] opacity-50"></div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 w-full">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-              <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                  {/* Content Left */}
-                  <div className="text-white">
-                    {/* Badge */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-6"
-                    >
-                      <span className="text-sm font-semibold">
-                        {slide.badge}
-                      </span>
-                    </motion.div>
+          {/* Left — copy */}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/25 bg-cyan-400/8 px-4 py-1.5 text-sm font-medium text-cyan-300 mb-8">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
+              </span>
+              Disponibles para nuevos proyectos
+            </div>
 
-                    {/* Title */}
-                    <motion.h1
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                      className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
-                    >
-                      {slide.title}
-                    </motion.h1>
+            <h1 className="text-5xl sm:text-6xl lg:text-[4.25rem] font-black leading-[1.05] tracking-tighter">
+              Webs que convierten
+              <span className="block mt-1 bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                visitas en clientes
+              </span>
+            </h1>
 
-                    {/* Subtitle */}
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.4 }}
-                      className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl"
-                    >
-                      {slide.subtitle}
-                    </motion.p>
+            <p className="mt-6 text-slate-400 text-lg max-w-lg leading-relaxed">
+              Diseñamos y desarrollamos sitios de alto impacto para empresas en Argentina. Estrategia, diseño y desarrollo en un solo equipo.
+            </p>
 
-                    {/* Features */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.6 }}
-                      className="flex flex-wrap gap-4 mb-8"
-                    >
-                      {slide.features.map((feature, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center gap-2 text-sm text-gray-200"
-                        >
-                          <CheckCircleIcon className="w-5 h-5 text-green-400" />
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </motion.div>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 rounded-full bg-cyan-400 text-slate-950 font-bold px-7 py-3.5 text-sm hover:bg-cyan-300 transition-colors"
+              >
+                Agendar llamada
+                <ArrowRightIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="#projects"
+                className="inline-flex items-center rounded-full border border-white/20 text-slate-300 px-7 py-3.5 text-sm font-semibold hover:border-white/40 hover:text-white transition-all"
+              >
+                Ver proyectos
+              </a>
+            </div>
 
-                    {/* CTA Buttons */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.8 }}
-                      className="flex flex-wrap gap-4"
-                    >
-                      <a
-                        href="#contact"
-                        className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 transition-all transform hover:scale-105"
-                        aria-label="Contactar para cotización"
-                      >
-                        Empezar Ahora
-                        <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                      </a>
-                      <a
-                        href="#services"
-                        className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-full font-semibold text-lg border border-white/20 hover:border-white/40 transition-all"
-                        aria-label="Ver servicios"
-                      >
-                        Ver Servicios
-                      </a>
-                    </motion.div>
-                  </div>
+            {/* Stats bar */}
+            <div className="mt-12 flex items-center gap-8 border-t border-white/10 pt-8">
+              <div>
+                <p className="text-2xl font-black text-white">50+</p>
+                <p className="text-xs text-slate-500 mt-0.5">Proyectos entregados</p>
+              </div>
+              <div className="w-px h-8 bg-white/10" />
+              <div>
+                <p className="text-2xl font-black text-white">96%</p>
+                <p className="text-xs text-slate-500 mt-0.5">Clientes satisfechos</p>
+              </div>
+              <div className="w-px h-8 bg-white/10" />
+              <div>
+                <p className="text-2xl font-black text-white">14 días</p>
+                <p className="text-xs text-slate-500 mt-0.5">Entrega inicial</p>
+              </div>
+            </div>
+          </motion.div>
 
-                  {/* Stats Right */}
-                  <div className="hidden lg:block">
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 1 }}
-                      className="grid grid-cols-2 gap-6"
-                    >
-                      {[
-                        { value: "50+", label: "Proyectos Completados" },
-                        { value: "100%", label: "Clientes Satisfechos" },
-                        { value: "24/7", label: "Soporte Disponible" },
-                        { value: "5★", label: "Calificación Promedio" },
-                      ].map((stat, i) => (
-                        <div
-                          key={i}
-                          className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all"
-                        >
-                          <div className="text-4xl font-bold text-white mb-2">
-                            {stat.value}
-                          </div>
-                          <div className="text-sm text-gray-300">
-                            {stat.label}
-                          </div>
-                        </div>
-                      ))}
-                    </motion.div>
+          {/* Right — benefit card */}
+          <motion.div
+            initial={{ opacity: 0, y: 36 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.15 }}
+            className="relative"
+          >
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-cyan-400/10 to-blue-600/10 blur-2xl" />
+            <div className="relative rounded-3xl border border-white/10 bg-slate-900/60 backdrop-blur-sm p-8 space-y-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+                Qué incluye trabajar con nosotros
+              </p>
+
+              {[
+                {
+                  num: "01",
+                  title: "Estrategia antes de diseñar",
+                  desc: "Definimos objetivo y mensaje para que todo tenga propósito.",
+                },
+                {
+                  num: "02",
+                  title: "Diseño mobile-first rápido",
+                  desc: "Pensado para el celular, carga rápida y estética moderna.",
+                },
+                {
+                  num: "03",
+                  title: "SEO técnico incluido",
+                  desc: "Base optimizada para Google desde el día uno.",
+                },
+              ].map((item) => (
+                <div key={item.num} className="flex gap-4 items-start">
+                  <span className="text-xs font-bold text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 rounded-full px-2.5 py-1 shrink-0 mt-0.5">
+                    {item.num}
+                  </span>
+                  <div>
+                    <p className="font-semibold text-white text-sm">{item.title}</p>
+                    <p className="text-slate-400 text-sm mt-1">{item.desc}</p>
                   </div>
                 </div>
-              </div>
-
-              {/* Scroll Indicator */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5 }}
-                className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-              >
-                <a
-                  href="#services"
-                  className="flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors"
-                >
-                  <span className="text-sm font-medium">Descubre más</span>
-                  <svg
-                    className="w-6 h-6 animate-bounce"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </a>
-              </motion.div>
+              ))}
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          </motion.div>
 
-      {/* Custom Swiper Styles */}
-      <style>{`
-        .swiper-button-next,
-        .swiper-button-prev {
-          color: white;
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .swiper-button-next:after,
-        .swiper-button-prev:after {
-          font-size: 20px;
-        }
-
-        .swiper-button-next:hover,
-        .swiper-button-prev:hover {
-          background: rgba(255, 255, 255, 0.2);
-        }
-
-        .swiper-pagination-bullet {
-          width: 12px;
-          height: 12px;
-          background: rgba(255, 255, 255, 0.5);
-          opacity: 1;
-        }
-
-        .swiper-pagination-bullet-active {
-          background: #2563eb;
-          width: 32px;
-          border-radius: 6px;
-        }
-      `}</style>
+        </div>
+      </div>
     </section>
   );
 };

@@ -27,6 +27,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.frontio.com.ar/" />
+    <meta property="og:site_name" content="Frontio Web Solutions" />
     <meta
       property="og:title"
       content="Frontio - Desarrollo Web Profesional | Diseño Web y Landing Pages"
@@ -35,12 +36,13 @@
       property="og:description"
       content="Frontio ofrece desarrollo web profesional, diseño de sitios modernos y landing pages efectivas. Soluciones digitales personalizadas para impulsar tu negocio online."
     />
-    <meta property="og:image" content="/frontio.png" />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:image" content="https://www.frontio.com.ar/frontio.png" />
+    <meta property="og:locale" content="es_AR" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://www.frontio.com.ar/" />
+    <meta property="twitter:site" content="@frontio_ar" />
     <meta
       property="twitter:title"
       content="Frontio - Desarrollo Web Profesional | Diseño Web y Landing Pages"
@@ -49,13 +51,11 @@
       property="twitter:description"
       content="Frontio ofrece desarrollo web profesional, diseño de sitios modernos y landing pages efectivas. Soluciones digitales personalizadas para impulsar tu negocio online."
     />
-    <meta property="twitter:image" content="/frontio.png" />
+    <meta property="twitter:image" content="https://www.frontio.com.ar/frontio.png" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.frontio.com.ar/" />
-
-    <!-- Prevenir indexación de fragmentos hash -->
-    <meta name="fragment" content="!" />
+    <link rel="alternate" hreflang="es-AR" href="https://www.frontio.com.ar/" />
 
     <!-- Additional SEO -->
     <meta name="theme-color" content="#2563eb" />
@@ -66,25 +66,38 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Frontio Web Solutions",
-        "url": "https://www.frontio.com.ar",
-        "logo": "https://www.frontio.com.ar/frontio.png",
-        "description": "Desarrollo web profesional y soluciones digitales personalizadas",
-        "sameAs": [],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "Customer Service",
-          "availableLanguage": ["Spanish", "English"]
-        },
-        "service": {
-          "@type": "Service",
-          "serviceType": "Web Development",
-          "provider": {
+        "@graph": [
+          {
             "@type": "Organization",
-            "name": "Frontio Web Solutions"
+            "name": "Frontio Web Solutions",
+            "url": "https://www.frontio.com.ar/",
+            "logo": "https://www.frontio.com.ar/frontio.png",
+            "sameAs": [
+              "https://www.instagram.com/frontio.ar/",
+              "https://www.linkedin.com/company/frontio-web-solutions",
+              "https://github.com/ocmedina"
+            ]
+          },
+          {
+            "@type": "ProfessionalService",
+            "name": "Frontio Web Solutions",
+            "url": "https://www.frontio.com.ar/",
+            "description": "Desarrollo web profesional, landing pages y sistemas personalizados en Argentina.",
+            "areaServed": "AR",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Mendoza",
+              "addressCountry": "AR"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "email": "frontio.web@gmail.com",
+              "telephone": "+54 260 440-7734",
+              "availableLanguage": ["es"]
+            }
           }
-        }
+        ]
       }
     </script>
   </head>

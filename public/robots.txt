@@ -1,14 +1,6 @@
 # robots.txt para Frontio Web Solutions
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
-
-# No indexar URLs con fragmentos hash (SPA)
-Disallow: /*#
 
 # Sitemap
 Sitemap: https://www.frontio.com.ar/sitemap.xml
-
-# Crawl delay
-Crawl-delay: 1

@@ -3,8 +3,12 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.frontio.com.ar/</loc>
-    <lastmod>2025-11-30</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.frontio.com.ar/frontio.png</image:loc>
+      <image:title>Frontio Web Solutions</image:title>
+    </image:image>
   </url>
 </urlset>

@@ -58,17 +58,17 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-gray-50 text-gray-800 scroll-mt-24"
+      className="py-24 bg-slate-50 text-slate-800 scroll-mt-16"
     >
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
+          <span className="inline-flex rounded-full bg-white border border-slate-200 px-4 py-1 text-sm font-semibold text-slate-600 mb-4">
             Contacto
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
             ¿Trabajamos juntos?
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-slate-500 max-w-2xl mx-auto">
             Tenés una idea en mente? Contanos sobre tu proyecto y te
             responderemos en menos de 24 horas.
           </p>
@@ -77,57 +77,57 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
           {/* Columna izquierda: Info de contacto */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <h3 className="text-2xl font-bold mb-6">
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+              <h3 className="text-xl font-bold text-slate-900 mb-6">
                 Información de contacto
               </h3>
 
               <div className="space-y-4">
-                <div className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                    <Mail className="text-blue-600" size={24} />
+                <div className="flex items-start gap-4 p-4 rounded-lg hover:bg-slate-50 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-50 border border-cyan-100 flex items-center justify-center flex-shrink-0">
+                    <Mail className="text-cyan-600" size={20} />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Email</p>
+                    <p className="font-semibold text-slate-900 text-sm">Email</p>
                     <a
                       href="mailto:contacto@frontio.com.ar"
-                      className="text-gray-600 hover:text-blue-600 transition-colors"
+                      className="text-slate-500 text-sm hover:text-cyan-600 transition-colors"
                     >
                       frontio.web@gmail.com
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
-                  <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
-                    <i className="ri-whatsapp-line text-green-600 text-2xl"></i>
+                <div className="flex items-start gap-4 p-4 rounded-lg hover:bg-slate-50 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-50 border border-cyan-100 flex items-center justify-center flex-shrink-0">
+                    <i className="ri-whatsapp-line text-cyan-600 text-xl"></i>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">WhatsApp</p>
+                    <p className="font-semibold text-slate-900 text-sm">WhatsApp</p>
                     <a
                       href="https://wa.me/2604407734"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 hover:text-green-600 transition-colors"
+                      className="text-slate-500 text-sm hover:text-cyan-600 transition-colors"
                     >
                       +54 260 440-7734
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
-                  <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
-                    <i className="ri-map-pin-line text-purple-600 text-2xl"></i>
+                <div className="flex items-start gap-4 p-4 rounded-lg hover:bg-slate-50 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-cyan-50 border border-cyan-100 flex items-center justify-center flex-shrink-0">
+                    <i className="ri-map-pin-line text-cyan-600 text-xl"></i>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Ubicación</p>
-                    <p className="text-gray-600">Mendoza, Argentina</p>
+                    <p className="font-semibold text-slate-900 text-sm">Ubicación</p>
+                    <p className="text-slate-500 text-sm">Mendoza, Argentina</p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-6 pt-6 border-t border-gray-200">
-                <p className="text-sm text-gray-600 mb-4">
+              <div className="mt-6 pt-6 border-t border-slate-200">
+                <p className="text-sm text-slate-500 mb-4">
                   Seguinos en redes sociales
                 </p>
                 <div className="flex gap-3">
@@ -167,14 +167,14 @@ const Contact = () => {
           <div className="lg:col-span-3">
             <form
               onSubmit={handleSubmit}
-              className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 space-y-6"
+              className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 space-y-6"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Nombre */}
                 <div>
                   <label
                     htmlFor="name"
-                    className="block mb-2 font-semibold text-gray-800"
+                    className="block mb-2 text-sm font-semibold text-slate-700"
                   >
                     Nombre completo *
                   </label>
@@ -190,7 +190,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       placeholder="Juan Pérez"
-                      className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+                      className="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 transition-all outline-none text-sm"
                       disabled={loading}
                     />
                   </div>
@@ -200,7 +200,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block mb-2 font-semibold text-gray-800"
+                    className="block mb-2 text-sm font-semibold text-slate-700"
                   >
                     Email *
                   </label>
@@ -216,7 +216,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       placeholder="juan@email.com"
-                      className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+                      className="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 transition-all outline-none text-sm"
                       disabled={loading}
                     />
                   </div>
@@ -227,7 +227,7 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="inquiry"
-                  className="block mb-2 font-semibold text-gray-800"
+                  className="block mb-2 text-sm font-semibold text-slate-700"
                 >
                   ¿Qué necesitás? *
                 </label>
@@ -237,7 +237,7 @@ const Contact = () => {
                   value={formData.inquiry}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none appearance-none bg-white"
+                  className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 transition-all outline-none appearance-none bg-white text-sm"
                   disabled={loading}
                 >
                   <option value="">Seleccioná una opción</option>
@@ -255,7 +255,7 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block mb-2 font-semibold text-gray-800"
+                  className="block mb-2 text-sm font-semibold text-slate-700"
                 >
                   Contanos sobre tu proyecto *
                 </label>
@@ -267,7 +267,7 @@ const Contact = () => {
                   rows={6}
                   required
                   placeholder="Describí tu idea, qué necesitás y cualquier detalle relevante..."
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none resize-none"
+                  className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 transition-all outline-none resize-none text-sm"
                   disabled={loading}
                 ></textarea>
               </div>
@@ -276,7 +276,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 transform hover:scale-[1.02] ${
+                className={`w-full bg-slate-950 hover:bg-slate-800 text-white px-8 py-4 rounded-full font-bold text-sm transition-colors flex items-center justify-center gap-2 ${
                   loading ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >
@@ -293,8 +293,8 @@ const Contact = () => {
                 )}
               </button>
 
-              <p className="text-sm text-gray-500 text-center">
-                Te responderemos en menos de 24 horas 🚀
+              <p className="text-xs text-slate-400 text-center">
+                Te responderemos en menos de 24 horas.
               </p>
             </form>
           </div>

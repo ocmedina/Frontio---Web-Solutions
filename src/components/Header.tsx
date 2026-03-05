@@ -1,171 +1,106 @@
 // Header.tsx
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+const navLinks = [
+  { href: "#services", label: "Servicios" },
+  { href: "#projects", label: "Proyectos" },
+  { href: "#process", label: "Proceso" },
+  { href: "#about", label: "Nosotros" },
+  { href: "#faq", label: "FAQ" },
+];
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md" role="banner">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <header className="sticky top-0 z-50 bg-slate-950/85 backdrop-blur-md border-b border-white/10" role="banner">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 h-16 flex items-center justify-between">
         <a href="/" aria-label="Ir a inicio">
           <img
-            src="/frontio-logo1.webp"
+            src="/footer.png"
             alt="Frontio Web Solutions Logo"
-            className="h-10 w-auto"
+            className="h-12 w-auto"
           />
         </a>
 
-        {/* Desktop Menu */}
+        {/* Desktop Nav */}
         <nav
-          className="hidden lg:flex gap-6 text-gray-800"
+          className="hidden lg:flex items-center gap-8"
           role="navigation"
           aria-label="Menú principal"
         >
-          <a
-            href="#services"
-            className="hover:text-blue-600 transition-all duration-300 hover:-translate-y-[1px]"
-            aria-label="Ir a sección de servicios"
-          >
-            Servicios
-          </a>
-          <a
-            href="#frontstock"
-            className="hover:text-blue-600 transition-all duration-300 hover:-translate-y-[1px]"
-            aria-label="Ir a FrontStock"
-          >
-            FrontStock
-          </a>
-          <a
-            href="#chatbots"
-            className="hover:text-blue-600 transition-all duration-300 hover:-translate-y-[1px]"
-            aria-label="Ir a ChatBots"
-          >
-            ChatBots
-          </a>
-          <a
-            href="#projects"
-            className="hover:text-blue-600 transition-all duration-300 hover:-translate-y-[1px]"
-            aria-label="Ir a Proyectos"
-          >
-            Proyectos
-          </a>
-          <a
-            href="#about"
-            className="hover:text-blue-600 transition-all duration-300 hover:-translate-y-[1px]"
-            aria-label="Ir a sección sobre nosotros"
-          >
-            Nosotros
-          </a>
-          <a
-            href="#contact"
-            className="hover:text-blue-600 transition-all duration-300 hover:-translate-y-[1px]"
-            aria-label="Ir a sección de contacto"
-          >
-            Contacto
-          </a>
+          {navLinks.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="text-sm font-medium text-slate-400 hover:text-white transition-colors duration-200"
+            >
+              {label}
+            </a>
+          ))}
         </nav>
 
-        {/* CTA Button */}
+        {/* CTA */}
         <a
           href="#contact"
-          className="hidden md:inline-block bg-blue-600 text-white px-4 py-2 rounded-xl text-sm shadow-md transition-transform duration-300 hover:bg-blue-700 hover:scale-105"
-          aria-label="Solicitar cotización"
+          className="hidden md:inline-flex items-center justify-center text-sm font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-colors px-5 py-2 rounded-full"
+          aria-label="Hablemos"
         >
-          Cotizar Ahora
+          Hablemos
         </a>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-2 text-gray-800 hover:text-blue-600 transition-colors"
-          aria-label="Abrir menú"
+          className="lg:hidden p-2 text-slate-400 hover:text-white transition-colors"
+          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={isOpen}
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {isOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <nav
-          className="lg:hidden bg-white border-t border-gray-200 py-4 px-4"
-          role="navigation"
-          aria-label="Menú móvil"
-        >
-          <div className="flex flex-col space-y-3">
-            <a
-              href="#services"
-              onClick={() => setIsOpen(false)}
-              className="text-gray-800 hover:text-blue-600 py-2 transition-colors"
-            >
-              Servicios
-            </a>
-            <a
-              href="#frontstock"
-              onClick={() => setIsOpen(false)}
-              className="text-gray-800 hover:text-blue-600 py-2 transition-colors"
-            >
-              FrontStock
-            </a>
-            <a
-              href="#chatbots"
-              onClick={() => setIsOpen(false)}
-              className="text-gray-800 hover:text-blue-600 py-2 transition-colors"
-            >
-              ChatBots
-            </a>
-            <a
-              href="#projects"
-              onClick={() => setIsOpen(false)}
-              className="text-gray-800 hover:text-blue-600 py-2 transition-colors"
-            >
-              Proyectos
-            </a>
-            <a
-              href="#about"
-              onClick={() => setIsOpen(false)}
-              className="text-gray-800 hover:text-blue-600 py-2 transition-colors"
-            >
-              Nosotros
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setIsOpen(false)}
-              className="text-gray-800 hover:text-blue-600 py-2 transition-colors"
-            >
-              Contacto
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setIsOpen(false)}
-              className="bg-blue-600 text-white px-4 py-3 rounded-xl text-sm font-semibold text-center mt-2 hover:bg-blue-700 transition-colors"
-            >
-              Cotizar Ahora
-            </a>
-          </div>
-        </nav>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.nav
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden overflow-hidden bg-slate-900 border-t border-white/10"
+            role="navigation"
+            aria-label="Menú móvil"
+          >
+            <div className="px-4 py-4 flex flex-col gap-1">
+              {navLinks.map(({ href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-slate-300 hover:text-white hover:bg-white/5 px-4 py-3 rounded-xl text-sm font-medium transition-all"
+                >
+                  {label}
+                </a>
+              ))}
+              <a
+                href="#contact"
+                onClick={() => setIsOpen(false)}
+                className="mt-2 text-center text-sm font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 px-5 py-3 rounded-full transition-colors"
+              >
+                Hablemos
+              </a>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

@@ -85,27 +85,33 @@ export default function Projects() {
       : projectsData.filter((p) => p.category === filter);
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section id="projects" className="py-24 bg-slate-950 text-white" aria-labelledby="projects-title">
       <div className="max-w-6xl mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl font-bold text-center mb-10"
-        >
-          Nuestros Proyectos
-        </motion.h2>
+        <div className="text-center mb-12">
+          <p className="inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-1 text-sm font-semibold text-slate-300 mb-4">
+            Casos de uso
+          </p>
+          <h2
+            id="projects-title"
+            className="text-4xl md:text-5xl font-bold tracking-tight text-white"
+          >
+            Casos reales que ya están funcionando
+          </h2>
+          <p className="text-slate-400 max-w-2xl mx-auto mt-4">
+            Una muestra de proyectos donde combinamos diseño, desarrollo y estrategia para generar resultados medibles.
+          </p>
+        </div>
 
         {/* Filtros */}
-        <div className="flex justify-center gap-4 mb-10 flex-wrap">
+        <div className="flex justify-center gap-3 mb-10 flex-wrap">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === cat
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  ? "bg-cyan-400 text-slate-950 font-bold"
+                  : "border border-white/20 text-slate-400 hover:border-white/40 hover:text-white"
               }`}
             >
               {cat}
@@ -114,49 +120,38 @@ export default function Projects() {
         </div>
 
         {/* Grid de proyectos */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              viewport={{ once: true }}
+              className="rounded-2xl border border-white/10 bg-slate-900/80 overflow-hidden flex flex-col group hover:border-white/25 transition-colors"
             >
               {/* Carrusel de imágenes */}
-              <div className="relative group">
+              <div className="relative">
                 <Swiper
                   modules={[Pagination, Navigation, Autoplay]}
-                  pagination={{
-                    clickable: true,
-                    dynamicBullets: true,
-                  }}
+                  pagination={{ clickable: true, dynamicBullets: true }}
                   navigation={true}
-                  autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true,
-                  }}
+                  autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
                   loop={true}
                   className="project-swiper"
                 >
                   {project.images.map((image, imgIndex) => (
                     <SwiperSlide key={imgIndex}>
-                      <div className="relative w-full h-64 bg-gray-100 flex items-center justify-center">
+                      <div className="relative w-full h-52 bg-slate-800 flex items-center justify-center">
                         <img
                           src={image}
                           alt={`${project.title} - Vista ${imgIndex + 1}`}
                           className="max-w-full max-h-full object-contain"
                           loading="lazy"
                           onError={(e) => {
-                            // Fallback si la imagen no existe
-                            e.currentTarget.src = `https://placehold.co/600x400/2563eb/ffffff?text=${encodeURIComponent(
-                              project.title
-                            )}`;
+                            e.currentTarget.src = `https://placehold.co/600x400/1e293b/22d3ee?text=${encodeURIComponent(project.title)}`;
                           }}
                         />
-                        {/* Overlay con número de imagen */}
                         <div className="absolute top-3 right-3 bg-black/60 text-white text-xs px-2 py-1 rounded-full backdrop-blur-sm">
                           {imgIndex + 1}/{project.images.length}
                         </div>
@@ -167,30 +162,31 @@ export default function Projects() {
               </div>
 
               <div className="p-5 flex flex-col grow">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-600 text-sm grow">
+                <span className="text-xs font-semibold text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 rounded-full px-2.5 py-0.5 w-fit mb-3">
+                  {project.category}
+                </span>
+                <h3 className="text-base font-bold text-white mb-2">{project.title}</h3>
+                <p className="text-slate-400 text-sm grow leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 my-3">
+                <div className="flex flex-wrap gap-1.5 my-4">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs"
+                      className="bg-white/5 border border-white/10 text-slate-400 px-2 py-0.5 rounded-full text-xs"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-3 mt-auto">
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-blue-600 hover:underline font-semibold"
-                  >
-                    <FiExternalLink /> Ver Proyecto
-                  </a>
-                </div>
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors mt-auto"
+                >
+                  <FiExternalLink className="w-4 h-4" /> Ver proyecto
+                </a>
               </div>
             </motion.div>
           ))}
